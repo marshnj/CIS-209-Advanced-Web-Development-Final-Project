@@ -1,12 +1,17 @@
-const {createServer} = require("node:http");
+const express = require("express");
+const path = require("path");
 
-const hostname = "127.0.0.1";
-const port = 3000;
+const app = express();
 
-const server = createServer((req, res) => {
-	res.setHeader("Content-Type", "text/plain");
+// Serve everything in THIS folder (HTML, CSS, JS, images)
+app.use(express.static(__dirname));
 
+// Default route -> index.html
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
 });
-server.listen(port, hostname, () => {
-	console.log(`Server running at http://${hostname}:${port}/`);
+
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
 });

@@ -61,7 +61,7 @@ function validateGuess(guess){
     } else if (guess < 1) {
         alert('Please enter a number greater than 1!');
     } else if (guess > 100){
-        alert('Please enter a number less than 500!')
+        alert('Please enter a number less than 100!')
     } else {
         /** Keep record of number of attempted guesses  */
         previousGuesses.push(guess);
@@ -120,7 +120,7 @@ function displayGuesses(guess){
  * @param {text} message - The message to display
 */
 function displayMessage(message){
-        lowOrHi.innerHTML = `<h1>${message}</h1>`
+        lowOrHi.innerHTML = `<h1 style="line-height: 1.5; border-radius: 0px; background-color: #8e3187ff; width: 600px"> ${message}</h1>`
 }
 
 /** 
@@ -140,7 +140,7 @@ function endGame(){
     userInput.setAttribute('disabled', '');
     /** Display Start new Game Button */
           p.classList.add('button');
-          p.innerHTML = `<h1 style="line-height: 1.25"; id="newGame">Start New Game</h1>`
+          p.innerHTML = `<h1 style="line-height: 1.25; border-radius: 100px; background-color: #08b116ff; width: 400px" ; id="newGame">Start New Game</h1>`
     startOver.appendChild(p);
     playGame = false;
     newGame();
